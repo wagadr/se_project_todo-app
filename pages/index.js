@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid';
-console.log(uuidv4());
 import { initialTodos, validationConfig } from "../utils/constants.js";
 import Todo from "../components/Todo.js";
 import FormValidator from "../components/FormValidator.js";
@@ -22,7 +21,7 @@ const closeModal = (modal) => {
 // The logic in this function should all be handled in the Todo class.
 const generateTodo = (data) => {
   const todo = new Todo(data, "#todo-template");
-  const  _todoElement = todo.getView()
+  const _todoElement = todo.getView()
   
   return _todoElement;
  
@@ -56,12 +55,12 @@ initialTodos.forEach((item) => {
   todosList.append(todo);
 });
 
-const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
-
-newTodoValidator.enableValidation();
-
 newTodoValidator.resetValidation () {
   if hasInvalidInput === (true) {
     resetValidation ();
-  }
+  };
+
+const newTodoValidator = new FormValidator(validationConfig, addTodoForm);
+
+newTodoValidator.enableValidation();
 };

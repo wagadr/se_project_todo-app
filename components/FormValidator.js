@@ -26,7 +26,7 @@ class FormValidator {
         this._formElement.querySelectorAll(this._inputSelector),
   );
         const buttonElement = this._formElement.querySelector(
-        this._settings._submitButtonSelector,
+        this._submitButtonSelector,
   );
 
   toggleButtonState(this._inputList, buttonElement, settings);
@@ -47,7 +47,9 @@ class FormValidator {
     }
 
     resetValidation() {
-        this._inputElement.reset();
+        this._formElement.reset();
+        this._inputList.forEach(input => this._hideInputError(input));
+        this._toggleButtonState();
         this._buttonElement.disabled = true;
     }
 }
